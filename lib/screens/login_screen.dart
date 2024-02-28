@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:loanapp/componets/my_button.dart';
 import 'package:loanapp/componets/my_textfield.dart';
@@ -8,6 +9,12 @@ class LoginScreen extends StatelessWidget {
   });
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  //sign user in method
+  void signUserIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text, password: passwordController.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,17 +74,18 @@ class LoginScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
               child: Text(
                 'Forgot Password',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 15),
               ),
             ),
             const SizedBox(
               height: 18,
             ),
             //submit button
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Mybutton(
+                  onTap: signUserIn,
                   myButtonName: 'Submit',
                 ),
               ],

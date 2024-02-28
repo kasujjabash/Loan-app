@@ -7,6 +7,11 @@ class SignUpScreen extends StatelessWidget {
   final nationalIdentificationController = TextEditingController();
   final phoneNumberController = TextEditingController();
 
+  //sign up a user
+  void signUserUp(){
+
+  }
+
   SignUpScreen({super.key});
 
   @override
@@ -88,9 +93,11 @@ class SignUpScreen extends StatelessWidget {
               height: 30,
             ),
             //submit button
-            const Padding(
+             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
-              child: Mybutton(myButtonName: 'Submit'),
+              child: Mybutton(
+                onTap: signUserUp,
+                myButtonName: 'Submit'),
             ),
             const SizedBox(
               height: 20,
