@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loanapp/screens/SignUpScreen.dart';
 
 import 'screens/login_screen.dart';
 
@@ -29,6 +30,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoginScreen();
+    return SignUpScreen();
   }
 }
