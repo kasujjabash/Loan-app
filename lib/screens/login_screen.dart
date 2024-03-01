@@ -12,6 +12,16 @@ class LoginScreen extends StatelessWidget {
 
   //sign user in method
   void signUserIn() async {
+    
+    // Progress circular indicator
+    // showDialog(
+    //   context: context ,
+    //     builder: (context) {
+    //       return const Center(
+    //         child: CircularProgressIndicator(),
+    //       );
+    //     });
+
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text, password: passwordController.text);
   }

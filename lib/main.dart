@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loanapp/pages/auth_page.dart';
-import 'package:loanapp/screens/SignUp_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-
-import 'screens/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +24,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      // routes: {
+      //   '/home': (context) => HomeScreen(),
+      //   '/loan': (context) => LoanScreen(),
+      //   '/history': (context) => HistoryScreen(),
+      //   '/profile': (context) => ProfileScreen(),
+      // },
       home: const MyHomePage(),
     );
   }

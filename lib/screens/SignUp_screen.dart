@@ -96,7 +96,7 @@ class SignUpScreen extends StatelessWidget {
              Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Mybutton(
-                onTap: signUserUp,
+                onTap: signUserUp ,
                 myButtonName: 'Submit'),
             ),
             const SizedBox(
