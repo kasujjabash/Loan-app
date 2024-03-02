@@ -12,7 +12,6 @@ class LoginScreen extends StatelessWidget {
 
   //sign user in method
   void signUserIn() async {
-    
     // Progress circular indicator
     // showDialog(
     //   context: context ,

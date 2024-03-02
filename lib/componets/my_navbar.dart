@@ -7,39 +7,36 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: Container(
-        color: Colors.black,
-        child: Padding(
+    return Container(
+      color: Colors.black,
+      child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
           child: GNav(
-              gap: 8,
-              backgroundColor: Colors.black,
-              color: Colors.white,
-              activeColor: Colors.white,
-              tabBackgroundColor: Colors.blue,
-              padding: const EdgeInsets.all(16),
-              onTabChange: (value) => onTabChange!(value),
-              tabs: const [
-                GButton(
-                  icon: Icons.home,
-                  text: 'Home',
-                ),
-                GButton(
-                  icon: Icons.money_off,
-                  text: 'Loan',
-                ),
-                GButton(
-                  icon: Icons.history,
-                  text: 'History',
-                ),
-                GButton(
-                  icon: Icons.person,
-                  text: 'Profile',
-                ),
-              ]),
-        ),
-      ),
+            color: Colors.white,
+            activeColor: Colors.white,
+            tabBackgroundColor: Colors.blue,
+
+            //this is the on tab function to enable changes in tabs
+            onTabChange: (value) => onTabChange!(value),
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+              ),
+              GButton(
+                icon: Icons.attach_money,
+                text: 'Loan',
+              ),
+              GButton(
+                icon: Icons.history,
+                text: 'History',
+              ),
+              GButton(
+                icon: Icons.person,
+                text: 'Profile',
+              )
+            ],
+          )),
     );
   }
 }

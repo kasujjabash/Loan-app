@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   //this is a method to update the selected index
+  //when the user taps on the buttom bar
   void navigationBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
@@ -24,22 +25,25 @@ class _HomePageState extends State<HomePage> {
   }
 
   //screen display
-  final List<Widget> _page = [
+  final List<Widget> _pages = [
     //home screen
-    HomeScreen(),
+    const HomeScreen(),
     //Loan screen
-    LoanScreen(),
+    const LoanScreen(),
     //History screen
-    HistoryScreen(),
-    //Profile scree
-    ProfileScreen(),
+    const HistoryScreen(),
+    // //Profile scree
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _page[_selectedIndex],
-      bottomNavigationBar: BottomNavBar(
-        onTabChange: (index) => navigationBottomBar(index),
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: Container(
+        // height: 100,
+        child: BottomNavBar(
+          onTabChange: (index) => navigationBottomBar(index),
+        ),
       ),
     );
   }

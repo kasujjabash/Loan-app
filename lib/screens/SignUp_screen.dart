@@ -94,7 +94,7 @@ class SignUpScreen extends StatelessWidget {
             ),
             //submit button
              Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Mybutton(
                 onTap: signUserUp ,
                 myButtonName: 'Submit'),
