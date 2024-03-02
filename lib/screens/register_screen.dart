@@ -2,17 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:loanapp/componets/my_button.dart';
 import 'package:loanapp/componets/my_textfield.dart';
 
-class SignUpScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
+  final Function()? onTap;
+  const RegisterScreen({super.key, required this.onTap});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
   final bankVerificationController = TextEditingController();
+
   final nationalIdentificationController = TextEditingController();
+
   final phoneNumberController = TextEditingController();
 
   //sign up a user
-  void signUserUp(){
+  void signUserUp() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const CircularProgressIndicator();
+        });
 
+    //try creating a user
+    // try{
+    //   await FirebaseAuth.instance.sign
+    // }
   }
-
-  SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -93,27 +110,28 @@ class SignUpScreen extends StatelessWidget {
               height: 30,
             ),
             //submit button
-             Padding(
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Mybutton(
-                onTap: signUserUp ,
-                myButtonName: 'Submit'),
+              child: Mybutton(onTap: signUserUp, myButtonName: 'Submit'),
             ),
             const SizedBox(
               height: 20,
             ),
             //signIn
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Row(
                 children: [
-                  Text('Already have an Account?'),
-                  SizedBox(
+                  const Text('Already have an Account?'),
+                  const SizedBox(
                     width: 10,
                   ),
-                  Text(
-                    'SIGN IN',
-                    style: TextStyle(color: Colors.blue),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(color: Colors.blue),
+                    ),
                   ),
                 ],
               ),

@@ -3,27 +3,76 @@ import 'package:flutter/material.dart';
 import 'package:loanapp/componets/my_button.dart';
 import 'package:loanapp/componets/my_textfield.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({
-    super.key,
-  });
+class LoginScreen extends StatefulWidget {
+  final Function()? onTap;
+  const LoginScreen({super.key, required this.onTap});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   //sign user in method
   void signUserIn() async {
     // Progress circular indicator
-    // showDialog(
-    //   context: context ,
-    //     builder: (context) {
-    //       return const Center(
-    //         child: CircularProgressIndicator(),
-    //       );
-    //     });
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
 
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text, password: passwordController.text);
+    // Try to log a user in
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+      //pop the circular indicator
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      //pop the circular indicator
+      Navigator.pop(context);
+
+//show error message
+      ShowErrorMessage(e.code);
+    }
+    // //pop the circular indicator
+    // Navigator.pop(context);
   }
+
+//method for the wrong email
+//wrong email popup
+
+//Updatede Error message display
+  void ShowErrorMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Colors.blue,
+            title: Text(
+              message,
+              style: const TextStyle(color: Colors.white),
+            ),
+          );
+        });
+  }
+
+// //method for the wrong password
+// //wrong password popup
+//   void wrongPasswordMessage() {
+//     showDialog(
+//         context: context,
+//         builder: (context) {
+//           return const AlertDialog(
+//             title: Text("Incorrect Password"),
+//           );
+//         });
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -112,9 +161,13 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  Text(
-                    'SIGN UP',
-                    style: TextStyle(color: Colors.blue[700]),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: Text(
+                      'Register',
+                      style: TextStyle(
+                          color: Colors.blue[700], fontWeight: FontWeight.bold),
+                    ),
                   )
                 ],
               ),
