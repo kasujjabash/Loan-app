@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:loanapp/componets/my_button.dart';
 import 'package:loanapp/componets/my_textfield.dart';
@@ -11,6 +12,10 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
   final bankVerificationController = TextEditingController();
 
   final nationalIdentificationController = TextEditingController();
@@ -18,17 +23,50 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final phoneNumberController = TextEditingController();
 
   //sign up a user
-  void signUserUp() {
+  void signUserUp() async {
     showDialog(
         context: context,
         builder: (context) {
-          return const CircularProgressIndicator();
+          return Center(child: const CircularProgressIndicator());
         });
 
-    //try creating a user
-    // try{
-    //   await FirebaseAuth.instance.sign
-    // }
+    try {
+      if (passwordController.text == confirmPasswordController.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text);
+      } else {
+        ShowErrorMessage("Password don't match");
+      }
+
+      //pop the circular indicator
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      //pop the circular indicator
+      // Navigator.pop(context);
+
+//show error message
+      ShowErrorMessage(e.code);
+    }
+    // //pop the circular indicator
+    // Navigator.pop(context);
+  }
+
+//method for the wrong email
+//wrong email popup
+
+//Updatede Error message display
+  void ShowErrorMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Colors.blue,
+            title: Text(
+              message,
+              style: const TextStyle(color: Colors.white),
+            ),
+          );
+        });
   }
 
   @override
@@ -83,6 +121,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const SizedBox(
               height: 30,
             ),
+
+            MyTextfield(
+              obsecureText: false,
+              controller: emailController,
+              name: 'Email',
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            MyTextfield(
+              obsecureText: true,
+              controller: passwordController,
+              name: 'Password',
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+
+            MyTextfield(
+              obsecureText: true,
+              controller: confirmPasswordController,
+              name: 'Confirm Password',
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             //Textfields
             MyTextfield(
                 controller: bankVerificationController,
@@ -129,7 +193,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   GestureDetector(
                     onTap: widget.onTap,
                     child: const Text(
-                      'Login',
+                      'Login Now',
                       style: TextStyle(color: Colors.blue),
                     ),
                   ),
