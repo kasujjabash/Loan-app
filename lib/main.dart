@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:loanapp/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:loanapp/pages/home_page.dart';
 import 'package:loanapp/screens/apply_loan.dart';
+import 'package:loanapp/screens/contacts_screen.dart';
+import 'package:loanapp/screens/done.dart';
 import 'package:loanapp/screens/loan_screen.dart';
+import 'package:loanapp/screens/personal_info.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -29,7 +33,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/loanScreen': (context) => const LoanScreen(),
         '/apply': (context) => ApplyForLoan(),
-        // '/history': (context) => HistoryScreen(),
+        '/personal': (context) => PersonalInfo(),
+        '/contacts': (context) => ContactsInfo(),
+        '/home':(context) => const HomePage(),
+        '/done': (context) => DoneSubmission(),
         //'/home': (context) => HomeScreen(),
         // '/profile': (context) => ProfileScreen(),
       },

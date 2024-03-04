@@ -28,7 +28,7 @@ class MyElement extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    'lib/images/image_12.jpg',
+                    'lib/images/money.jpg',
                     height: 50,
                   ),
                 ),

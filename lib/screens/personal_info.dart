@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loanapp/componets/my_button.dart';
 import 'package:loanapp/componets/my_textfield.dart';
 
-class ApplyForLoan extends StatelessWidget {
+class PersonalInfo extends StatelessWidget {
   final purposeController = TextEditingController();
   final bankAccountController = TextEditingController();
   final loanTypeController = TextEditingController();
@@ -11,7 +11,7 @@ class ApplyForLoan extends StatelessWidget {
   final loanAmountController = TextEditingController();
   final nationalIdController = TextEditingController();
 
-  ApplyForLoan({super.key});
+  PersonalInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class ApplyForLoan extends StatelessWidget {
       backgroundColor: Colors.blue[50],
       appBar: AppBar(
         backgroundColor: Colors.blue[50],
-        title: const Text("Apply for a loan"),
+        title: const Text("Personal Information"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -28,7 +28,7 @@ class ApplyForLoan extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
               child: Text(
-                'Fill in the following options to establish how much you want to borrowand how long ',
+                'Please fill in the following information',
                 style: TextStyle(fontSize: 16),
               ),
             ),
@@ -37,7 +37,7 @@ class ApplyForLoan extends StatelessWidget {
             ),
             //Loan type
             ApplyTextFields(
-              hintText: 'Loan type',
+              hintText: 'First name',
               controller: loanTypeController,
             ),
             const SizedBox(
@@ -45,7 +45,7 @@ class ApplyForLoan extends StatelessWidget {
             ),
             //Amount
             ApplyTextFields(
-              hintText: 'Loan amount',
+              hintText: 'Last name',
               controller: loanAmountController,
             ),
             const SizedBox(
@@ -53,7 +53,7 @@ class ApplyForLoan extends StatelessWidget {
             ),
             //Period of payment
             ApplyTextFields(
-              hintText: 'Period of payment',
+              hintText: 'Date of birth',
               controller: periodOfPaymentController,
             ),
             const SizedBox(
@@ -61,7 +61,7 @@ class ApplyForLoan extends StatelessWidget {
             ),
             //purpose for the loan
             ApplyTextFields(
-              hintText: 'Purpose of Loan',
+              hintText: 'Gender',
               controller: purposeController,
             ),
             const SizedBox(
@@ -69,7 +69,7 @@ class ApplyForLoan extends StatelessWidget {
             ),
             //national id number
             ApplyTextFields(
-              hintText: 'National Identification Number',
+              hintText: 'Education',
               controller: nationalIdController,
             ),
             const SizedBox(
@@ -77,7 +77,15 @@ class ApplyForLoan extends StatelessWidget {
             ),
             //bank name
             ApplyTextFields(
-              hintText: 'Bank name',
+              hintText: 'Job status',
+              controller: bankNameController,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            //bank name
+            ApplyTextFields(
+              hintText: 'Profession',
               controller: bankNameController,
             ),
             const SizedBox(
@@ -85,7 +93,15 @@ class ApplyForLoan extends StatelessWidget {
             ),
             //bank information
             ApplyTextFields(
-              hintText: 'Bank Account number',
+              hintText: 'Salary',
+              controller: bankAccountController,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            //bank information
+            ApplyTextFields(
+              hintText: 'Marital status',
               controller: bankAccountController,
             ),
             SizedBox(
@@ -94,7 +110,7 @@ class ApplyForLoan extends StatelessWidget {
             //next button
             Mybutton(
                 myButtonName: 'Next',
-                onTap: () => Navigator.pushNamed(context, '/personal'))
+                onTap: () => Navigator.pushNamed(context, '/contacts')),
           ],
         ),
       ),

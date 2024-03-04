@@ -42,7 +42,7 @@ class ApplyTextFields extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
         controller: controller,
-        decoration:  InputDecoration(
+        decoration: InputDecoration(
             enabledBorder:
                 OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
             focusedBorder:

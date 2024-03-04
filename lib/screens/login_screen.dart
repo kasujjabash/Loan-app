@@ -85,9 +85,9 @@ class _LoginScreenState extends State<LoginScreen> {
             //main Image
             ClipRRect(
               borderRadius:
-                  const BorderRadius.only(bottomLeft: Radius.circular(580)),
+                  const BorderRadius.only(bottomLeft: Radius.circular(300)),
               child: Image.asset(
-                'lib/images/image_12.jpg',
+                'lib/images/login_image.jpg',
                 fit: BoxFit.fill,
               ),
             ),
@@ -132,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
               child: Text(
                 'Forgot Password',
-                style: TextStyle(fontSize: 15),
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
               ),
             ),
             const SizedBox(

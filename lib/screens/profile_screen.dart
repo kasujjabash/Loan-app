@@ -14,7 +14,10 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[50],
       appBar: AppBar(
+        backgroundColor: Colors.blue[50],
+        elevation: 0,
         title: const Text('My profile'),
         centerTitle: true,
       ),

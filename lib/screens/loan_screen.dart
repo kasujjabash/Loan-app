@@ -7,7 +7,9 @@ class LoanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[50],
       appBar: AppBar(
+        backgroundColor: Colors.blue[50],
         title: const Text("Loan Packages"),
         centerTitle: true,
       ),
