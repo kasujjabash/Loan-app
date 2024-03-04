@@ -108,7 +108,7 @@ class ContactsInfo extends StatelessWidget {
               height: 10,
             ),
             //bank information
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             //next button

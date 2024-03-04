@@ -104,7 +104,7 @@ class PersonalInfo extends StatelessWidget {
               hintText: 'Marital status',
               controller: bankAccountController,
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             //next button

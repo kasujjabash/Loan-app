@@ -44,9 +44,9 @@ class ApplyTextFields extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
             enabledBorder:
-                OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                const OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
             focusedBorder:
-                OutlineInputBorder(borderSide: BorderSide(color: Colors.blue)),
+                const OutlineInputBorder(borderSide: BorderSide(color: Colors.blue)),
             fillColor: Colors.white70,
             filled: true,
             hintText: hintText),

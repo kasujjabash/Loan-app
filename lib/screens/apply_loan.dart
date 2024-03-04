@@ -88,7 +88,7 @@ class ApplyForLoan extends StatelessWidget {
               hintText: 'Bank Account number',
               controller: bankAccountController,
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             //next button

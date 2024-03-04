@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         '/personal': (context) => PersonalInfo(),
         '/contacts': (context) => ContactsInfo(),
         '/home':(context) => const HomePage(),
-        '/done': (context) => DoneSubmission(),
+        '/done': (context) => const DoneSubmission(),
         //'/home': (context) => HomeScreen(),
         // '/profile': (context) => ProfileScreen(),
       },
