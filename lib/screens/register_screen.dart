@@ -27,7 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     showDialog(
         context: context,
         builder: (context) {
-          return Center(child: const CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         });
 
     try {
@@ -173,10 +173,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const SizedBox(
               height: 30,
             ),
-            //submit button
+            //Register button
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Mybutton(onTap: signUserUp, myButtonName: 'Submit'),
+              child: Mybutton(onTap: signUserUp, myButtonName: 'Register'),
             ),
             const SizedBox(
               height: 20,

@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     //History screen
     const HistoryScreen(),
     // //Profile scree
-    const ProfileScreen(),
+     ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

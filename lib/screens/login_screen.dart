@@ -138,15 +138,10 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 18,
             ),
-            //submit button
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Mybutton(
-                  onTap: signUserIn,
-                  myButtonName: 'Submit',
-                ),
-              ],
+            //Login button
+            Mybutton(
+              onTap: signUserIn,
+              myButtonName: 'Login',
             ),
             const SizedBox(
               height: 15,
